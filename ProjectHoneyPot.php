@@ -85,7 +85,7 @@ class ProjectHoneyPot
 			}
 			else
 			{
-				return array('error' => 'Invalid Response');
+				return false;
 			}
 		}
 
