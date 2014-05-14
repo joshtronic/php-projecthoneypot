@@ -1,6 +1,6 @@
 # php-projecthoneypot [![Build Status](https://travis-ci.org/joshtronic/php-projecthoneypot.svg)](https://travis-ci.org/joshtronic/php-projecthoneypot) [![Coverage Status](https://coveralls.io/repos/joshtronic/php-projecthoneypot/badge.png)](https://coveralls.io/r/joshtronic/php-projecthoneypot)
 
-PHP Wrapper for Project Honey Pot
+PHP Wrapper for Project Honey Pot. Compatible with PHP 5.3+ and HHVM.
 
 ## Installation
 
