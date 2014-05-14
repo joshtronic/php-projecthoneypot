@@ -1,0 +1,16 @@
+{
+	"name":        "joshtronic/php-projecthoneypot",
+	"description": "PHP Wrapper for Project Honey Pot",
+	"license":     "MIT",
+	"authors": [{
+		"name":     "Josh Sherman",
+		"email":    "josh@gravityblvd.com",
+		"homepage": "https://github.com/joshtronic/php-projecthoneypot"
+	}],
+	"autoload": {
+		"classmap": ["src/"]
+	},
+	"require-dev": {
+		"satooshi/php-coveralls": "dev-master"
+	}
+}

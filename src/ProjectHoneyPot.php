@@ -43,7 +43,7 @@ class ProjectHoneyPot
 		}
 		else
 		{
-			throw new Exception('You must specify a valid API key.');
+			throw new \Exception('You must specify a valid API key.');
 		}
 	}
 
@@ -67,7 +67,7 @@ class ProjectHoneyPot
 			$reversed_ip = implode('.', $octets);
 
 			// Performs the query
-			$results = dns_get_record($this->api_key . '.' . $reversed_ip . '.dnsbl.httpbl.org', DNS_A);
+			$results = $this->dns_get_record($reversed_ip);
 
 			// Processes the results
 			if (isset($results[0]['ip']))
@@ -127,13 +127,29 @@ class ProjectHoneyPot
 					return $results;
 				}
 			}
-			else
-			{
-				return false;
-			}
+		}
+		else
+		{
+			return array('error' => 'Invalid IP address.');
 		}
 
-		return array('error' => 'Invalid IP address.');
+		return false;
+	}
+
+	/**
+	 * DNS Get Record
+	 *
+	 * Wrapper method for dns_get_record() to allow fo easy mocking of the
+	 * results in our tests. Takes an already reversed IP address and does a
+	 * DNS lookup for A records against the http:BL API.
+	 *
+	 * @access public
+	 * @param  string $reversed_ip reversed IPv4 address to check
+	 * @return array results from the DNS lookup
+	 */
+	public function dns_get_record($reversed_ip)
+	{
+		return dns_get_record($this->api_key . '.' . $reversed_ip . '.dnsbl.httpbl.org', DNS_A);
 	}
 }
 
