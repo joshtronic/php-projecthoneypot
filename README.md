@@ -1,4 +1,14 @@
-# php-projecthoneypot [![Build Status](https://travis-ci.org/joshtronic/php-projecthoneypot.svg)](https://travis-ci.org/joshtronic/php-projecthoneypot) [![Coverage Status](https://coveralls.io/repos/joshtronic/php-projecthoneypot/badge.png)](https://coveralls.io/r/joshtronic/php-projecthoneypot)
+# php-projecthoneypot
+
+[![Build Status](http://img.shields.io/travis/joshtronic/php-projecthoneypot.svg?style=flat)][travis]
+[![Coverage Status](http://img.shields.io/coveralls/joshtronic/php-projecthoneypot.svg?style=flat)][coveralls]
+[![Downloads](http://img.shields.io/packagist/dm/joshtronic/php-projecthoneypot.svg?style=flat)][packagist]
+[![Gittip](http://img.shields.io/gittip/joshtronic.svg?style=flat)][gittip]
+
+[travis]:    http://travis-ci.org/joshtronic/php-projecthoneypot
+[coveralls]: https://coveralls.io/r/joshtronic/php-projecthoneypot
+[packagist]: https://packagist.org/packages/joshtronic/php-projecthoneypot
+[gittip]:    https://www.gittip.com/joshtronic/
 
 PHP Wrapper for Project Honey Pot. Compatible with PHP 5.3+ and HHVM.
 
