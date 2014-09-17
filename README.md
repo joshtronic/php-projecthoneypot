@@ -25,7 +25,6 @@ Then run `composer update`
 ### Getting Started
 
 ```php
-require_once 'joshtronic/ProjectHoneyPot.php';
 $php = new joshtronic\ProjectHoneyPot('_YOUR_API_KEY_');
 ```
 
