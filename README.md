@@ -8,16 +8,12 @@ PHP Wrapper for Project Honey Pot. Compatible with PHP 5.3+ and HHVM.
 
 ## Installation
 
-The preferred installation method is via `composer`. First add the following
-to your `composer.json`
+The preferred installation method is via `composer`. From the root of your
+project simply run:
 
-```json
-"require": {
-    "joshtronic/php-projecthoneypot": "dev-master"
-}
+```shell
+composer require "joshtronic/php-projecthoneypot:dev-master"
 ```
-
-Then run `composer update`
 
 ## Usage
 
