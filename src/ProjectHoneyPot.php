@@ -8,8 +8,8 @@
  * Licensed under The MIT License.
  * Redistribution of these files must retain the above copyright notice.
  *
- * @author    Josh Sherman <josh@gravityblvd.com>
- * @copyright Copyright 2012-2014, Josh Sherman
+ * @author    Josh Sherman <hello@joshtronic.com>
+ * @copyright Copyright 2012-2015, Josh Sherman
  * @license   http://www.opensource.org/licenses/mit-license.html
  * @link      https://github.com/joshtronic/php-projecthoneypot
  * @link      http://www.projecthoneypot.org/httpbl_configure.php
@@ -37,12 +37,9 @@ class ProjectHoneyPot
      */
     public function __construct($api_key)
     {
-        if (preg_match('/^[a-z]{12}$/', $api_key))
-        {
+        if (preg_match('/^[a-z]{12}$/', $api_key)) {
             $this->api_key = $api_key;
-        }
-        else
-        {
+        } else {
             throw new \Exception('You must specify a valid API key.');
         }
     }
@@ -59,8 +56,7 @@ class ProjectHoneyPot
     public function query($ip_address)
     {
         // Validates the IP format
-        if (filter_var($ip_address, FILTER_VALIDATE_IP, FILTER_FLAG_IPV4 | FILTER_FLAG_NO_PRIV_RANGE))
-        {
+        if (filter_var($ip_address, FILTER_VALIDATE_IP, FILTER_FLAG_IPV4 | FILTER_FLAG_NO_PRIV_RANGE)) {
             // Flips the script, err, IP address
             $octets = explode('.', $ip_address);
             krsort($octets);
@@ -70,12 +66,10 @@ class ProjectHoneyPot
             $results = $this->dns_get_record($reversed_ip);
 
             // Processes the results
-            if (isset($results[0]['ip']))
-            {
+            if (isset($results[0]['ip'])) {
                 $results = explode('.', $results[0]['ip']);
 
-                if ($results[0] == 127)
-                {
+                if ($results[0] == 127) {
                     $results = array(
                         'last_activity' => $results[1],
                         'threat_score'  => $results[2],
@@ -83,40 +77,31 @@ class ProjectHoneyPot
                     );
 
                     // Creates an array of categories
-                    switch ($results['categories'])
-                    {
+                    switch ($results['categories']) {
                         case 0:
                             $categories = array('Search Engine');
                             break;
-
                         case 1:
                             $categories = array('Suspicious');
                             break;
-
                         case 2:
                             $categories = array('Harvester');
                             break;
-
                         case 3:
                             $categories = array('Suspicious', 'Harvester');
                             break;
-
                         case 4:
                             $categories = array('Comment Spammer');
                             break;
-
                         case 5:
                             $categories = array('Suspicious', 'Comment Spammer');
                             break;
-
                         case 6:
                             $categories = array('Harvester', 'Comment Spammer');
                             break;
-
                         case 7:
                             $categories = array('Suspicious', 'Harvester', 'Comment Spammer');
                             break;
-
                         default:
                             $categories = array('Reserved for Future Use');
                             break;
@@ -127,9 +112,7 @@ class ProjectHoneyPot
                     return $results;
                 }
             }
-        }
-        else
-        {
+        } else {
             return array('error' => 'Invalid IP address.');
         }
 

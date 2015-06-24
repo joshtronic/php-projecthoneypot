@@ -3,7 +3,6 @@
 [![Build Status](http://img.shields.io/travis/joshtronic/php-projecthoneypot.svg?style=flat)][travis]
 [![Coverage Status](http://img.shields.io/coveralls/joshtronic/php-projecthoneypot.svg?style=flat)][coveralls]
 [![Downloads](http://img.shields.io/packagist/dm/joshtronic/php-projecthoneypot.svg?style=flat)][packagist]
-[![Gittip](http://img.shields.io/gittip/joshtronic.svg?style=flat)][gittip]
 
 PHP Wrapper for Project Honey Pot. Compatible with PHP 5.3+ and HHVM.
 
