@@ -1,16 +1,25 @@
 {
-    "name":        "joshtronic/php-projecthoneypot",
+    "name": "joshtronic/php-projecthoneypot",
     "description": "PHP Wrapper for Project Honey Pot",
-    "version":     "1.0.0",
-    "type":        "library",
-    "keywords":    ["project", "honey", "pot", "api", "spam", "spammer"],
-    "homepage":    "https://github.com/joshtronic/php-projecthoneypot",
-    "license":     "MIT",
-    "authors": [{
-        "name":     "Josh Sherman",
-        "email":    "hello@joshtronic.com",
-        "homepage": "http://joshtronic.com"
-    }],
+    "version": "1.0.1",
+    "type": "library",
+    "keywords": [
+        "project",
+        "honey",
+        "pot",
+        "api",
+        "spam",
+        "spammer"
+    ],
+    "homepage": "https://github.com/joshtronic/php-projecthoneypot",
+    "license": "MIT",
+    "authors": [
+        {
+            "name":     "Josh Sherman",
+            "email":    "hello@joshtronic.com",
+            "homepage": "https://joshtronic.com"
+        }
+    ],
     "require-dev": {
         "php": ">=5.3.0"
     },
