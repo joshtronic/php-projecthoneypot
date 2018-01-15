@@ -2,6 +2,13 @@
 
 require_once '../src/ProjectHoneyPot.php';
 
+if (
+    !class_exists('\PHPUnit_Framework_TestCase')
+    && class_exists('\PHPUnit\Framework\TestCase')
+) {
+    class_alias('\PHPUnit\Framework\TestCase', '\PHPUnit_Framework_TestCase');
+}
+
 class ProjectHoneyPotTest extends PHPUnit_Framework_TestCase
 {
     /**
@@ -31,9 +38,10 @@ class ProjectHoneyPotTest extends PHPUnit_Framework_TestCase
             array('foobarfoobar')
         );
 
-        $mock->expects($this->once())
-             ->method('dns_get_record')
-             ->will($this->returnValue('foo'));
+        $mock
+            ->expects($this->once())
+            ->method('dns_get_record')
+            ->will($this->returnValue('foo'));
 
         $this->assertFalse($mock->query('1.2.3.4'));
     }
@@ -46,9 +54,10 @@ class ProjectHoneyPotTest extends PHPUnit_Framework_TestCase
             array('foobarfoobar')
         );
 
-        $mock->expects($this->once())
-             ->method('dns_get_record')
-             ->will($this->returnValue(array(array('ip' => '127.0.0.0'))));
+        $mock
+            ->expects($this->once())
+            ->method('dns_get_record')
+            ->will($this->returnValue(array(array('ip' => '127.0.0.0'))));
 
         $results = $mock->query('1.2.3.4');
 
@@ -63,9 +72,10 @@ class ProjectHoneyPotTest extends PHPUnit_Framework_TestCase
             array('foobarfoobar')
         );
 
-        $mock->expects($this->once())
-             ->method('dns_get_record')
-             ->will($this->returnValue(array(array('ip' => '127.0.0.1'))));
+        $mock
+            ->expects($this->once())
+            ->method('dns_get_record')
+            ->will($this->returnValue(array(array('ip' => '127.0.0.1'))));
 
         $results = $mock->query('1.2.3.4');
 
@@ -80,9 +90,10 @@ class ProjectHoneyPotTest extends PHPUnit_Framework_TestCase
             array('foobarfoobar')
         );
 
-        $mock->expects($this->once())
-             ->method('dns_get_record')
-             ->will($this->returnValue(array(array('ip' => '127.0.0.2'))));
+        $mock
+            ->expects($this->once())
+            ->method('dns_get_record')
+            ->will($this->returnValue(array(array('ip' => '127.0.0.2'))));
 
         $results = $mock->query('1.2.3.4');
 
@@ -97,9 +108,10 @@ class ProjectHoneyPotTest extends PHPUnit_Framework_TestCase
             array('foobarfoobar')
         );
 
-        $mock->expects($this->once())
-             ->method('dns_get_record')
-             ->will($this->returnValue(array(array('ip' => '127.0.0.3'))));
+        $mock
+            ->expects($this->once())
+            ->method('dns_get_record')
+            ->will($this->returnValue(array(array('ip' => '127.0.0.3'))));
 
         $results = $mock->query('1.2.3.4');
 
@@ -117,9 +129,10 @@ class ProjectHoneyPotTest extends PHPUnit_Framework_TestCase
             array('foobarfoobar')
         );
 
-        $mock->expects($this->once())
-             ->method('dns_get_record')
-             ->will($this->returnValue(array(array('ip' => '127.0.0.4'))));
+        $mock
+            ->expects($this->once())
+            ->method('dns_get_record')
+            ->will($this->returnValue(array(array('ip' => '127.0.0.4'))));
 
         $results = $mock->query('1.2.3.4');
 
@@ -137,9 +150,10 @@ class ProjectHoneyPotTest extends PHPUnit_Framework_TestCase
             array('foobarfoobar')
         );
 
-        $mock->expects($this->once())
-             ->method('dns_get_record')
-             ->will($this->returnValue(array(array('ip' => '127.0.0.5'))));
+        $mock
+            ->expects($this->once())
+            ->method('dns_get_record')
+            ->will($this->returnValue(array(array('ip' => '127.0.0.5'))));
 
         $results = $mock->query('1.2.3.4');
 
@@ -157,9 +171,10 @@ class ProjectHoneyPotTest extends PHPUnit_Framework_TestCase
             array('foobarfoobar')
         );
 
-        $mock->expects($this->once())
-             ->method('dns_get_record')
-             ->will($this->returnValue(array(array('ip' => '127.0.0.6'))));
+        $mock
+            ->expects($this->once())
+            ->method('dns_get_record')
+            ->will($this->returnValue(array(array('ip' => '127.0.0.6'))));
 
         $results = $mock->query('1.2.3.4');
 
@@ -177,9 +192,10 @@ class ProjectHoneyPotTest extends PHPUnit_Framework_TestCase
             array('foobarfoobar')
         );
 
-        $mock->expects($this->once())
-             ->method('dns_get_record')
-             ->will($this->returnValue(array(array('ip' => '127.0.0.7'))));
+        $mock
+            ->expects($this->once())
+            ->method('dns_get_record')
+            ->will($this->returnValue(array(array('ip' => '127.0.0.7'))));
 
         $results = $mock->query('1.2.3.4');
 
@@ -197,9 +213,10 @@ class ProjectHoneyPotTest extends PHPUnit_Framework_TestCase
             array('foobarfoobar')
         );
 
-        $mock->expects($this->once())
-             ->method('dns_get_record')
-             ->will($this->returnValue(array(array('ip' => '127.0.0.255'))));
+        $mock
+            ->expects($this->once())
+            ->method('dns_get_record')
+            ->will($this->returnValue(array(array('ip' => '127.0.0.255'))));
 
         $results = $mock->query('1.2.3.4');
 
@@ -217,9 +234,10 @@ class ProjectHoneyPotTest extends PHPUnit_Framework_TestCase
             array('foobarfoobar')
         );
 
-        $mock->expects($this->once())
-             ->method('dns_get_record')
-             ->will($this->returnValue(array(array('ip' => '1.0.0.0'))));
+        $mock
+            ->expects($this->once())
+            ->method('dns_get_record')
+            ->will($this->returnValue(array(array('ip' => '1.0.0.0'))));
 
         $this->assertFalse($mock->query('1.2.3.4'));
     }
