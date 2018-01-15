@@ -9,6 +9,12 @@ if (
     class_alias('\PHPUnit\Framework\TestCase', '\PHPUnit_Framework_TestCase');
 }
 
+$createMock = 'createMock';
+
+if (version_compare(PHPUnit_Runner_Version::id(), '5.4', '<=')) {
+    $createMock = 'getMock';
+}
+
 class ProjectHoneyPotTest extends PHPUnit_Framework_TestCase
 {
     /**
@@ -32,7 +38,7 @@ class ProjectHoneyPotTest extends PHPUnit_Framework_TestCase
 
     public function testMissingResults()
     {
-        $mock = $this->getMock(
+        $mock = $this->$createMock(
             'joshtronic\ProjectHoneyPot',
             array('dns_get_record'),
             array('foobarfoobar')
@@ -48,7 +54,7 @@ class ProjectHoneyPotTest extends PHPUnit_Framework_TestCase
 
     public function testCategory0()
     {
-        $mock = $this->getMock(
+        $mock = $this->$createMock(
             'joshtronic\ProjectHoneyPot',
             array('dns_get_record'),
             array('foobarfoobar')
@@ -66,7 +72,7 @@ class ProjectHoneyPotTest extends PHPUnit_Framework_TestCase
 
     public function testCategory1()
     {
-        $mock = $this->getMock(
+        $mock = $this->$createMock(
             'joshtronic\ProjectHoneyPot',
             array('dns_get_record'),
             array('foobarfoobar')
@@ -84,7 +90,7 @@ class ProjectHoneyPotTest extends PHPUnit_Framework_TestCase
 
     public function testCategory2()
     {
-        $mock = $this->getMock(
+        $mock = $this->$createMock(
             'joshtronic\ProjectHoneyPot',
             array('dns_get_record'),
             array('foobarfoobar')
@@ -102,7 +108,7 @@ class ProjectHoneyPotTest extends PHPUnit_Framework_TestCase
 
     public function testCategory3()
     {
-        $mock = $this->getMock(
+        $mock = $this->$createMock(
             'joshtronic\ProjectHoneyPot',
             array('dns_get_record'),
             array('foobarfoobar')
@@ -123,7 +129,7 @@ class ProjectHoneyPotTest extends PHPUnit_Framework_TestCase
 
     public function testCategory4()
     {
-        $mock = $this->getMock(
+        $mock = $this->$createMock(
             'joshtronic\ProjectHoneyPot',
             array('dns_get_record'),
             array('foobarfoobar')
@@ -144,7 +150,7 @@ class ProjectHoneyPotTest extends PHPUnit_Framework_TestCase
 
     public function testCategory5()
     {
-        $mock = $this->getMock(
+        $mock = $this->$createMock(
             'joshtronic\ProjectHoneyPot',
             array('dns_get_record'),
             array('foobarfoobar')
@@ -165,7 +171,7 @@ class ProjectHoneyPotTest extends PHPUnit_Framework_TestCase
 
     public function testCategory6()
     {
-        $mock = $this->getMock(
+        $mock = $this->$createMock(
             'joshtronic\ProjectHoneyPot',
             array('dns_get_record'),
             array('foobarfoobar')
@@ -186,7 +192,7 @@ class ProjectHoneyPotTest extends PHPUnit_Framework_TestCase
 
     public function testCategory7()
     {
-        $mock = $this->getMock(
+        $mock = $this->$createMock(
             'joshtronic\ProjectHoneyPot',
             array('dns_get_record'),
             array('foobarfoobar')
@@ -207,7 +213,7 @@ class ProjectHoneyPotTest extends PHPUnit_Framework_TestCase
 
     public function testCategoryDefault()
     {
-        $mock = $this->getMock(
+        $mock = $this->$createMock(
             'joshtronic\ProjectHoneyPot',
             array('dns_get_record'),
             array('foobarfoobar')
@@ -228,7 +234,7 @@ class ProjectHoneyPotTest extends PHPUnit_Framework_TestCase
 
     public function testWithout127()
     {
-        $mock = $this->getMock(
+        $mock = $this->$createMock(
             'joshtronic\ProjectHoneyPot',
             array('dns_get_record'),
             array('foobarfoobar')
