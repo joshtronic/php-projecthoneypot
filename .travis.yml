@@ -1,5 +1,5 @@
 language: php
-dist: trusty
+dist: bionic
 sudo: required
 
 matrix:
@@ -7,26 +7,34 @@ matrix:
     - php: 5.3
       dist: precise
     - php: 5.4
+      dist: trusty
     - php: 5.5
+      dist: trusty
     - php: 5.6
+      dist: trusty
     - php: 7.0
+      dist: xenial
     - php: 7.1
     - php: 7.2
-    - php: hhvm
-      env: HHVM=true
+    - php: 7.3
+    - php: 7.4
+      env: COVERAGE=true
+    - php: nightly
+  allow_failures:
+    - php: nightly
 
 install:
+  - php --version
   - composer install
-  - if [[ $HHVM == true ]]; then composer require "phpunit/phpunit:5.7"; fi
 
 before_script:
   - mkdir -p build/logs
-  - cd tests
 
 script:
-  - if [[ $HHVM == true ]]; then ../vendor/bin/phpunit --colors --coverage-clover ../build/logs/clover.xml .; fi
-  - if [[ $HHVM != true ]]; then phpunit --colors --coverage-clover ../build/logs/clover.xml .; fi
+  - vendor/bin/phpunit --coverage-clover build/logs/clover.xml
 
 after_success:
-  - cd ..
-  - php vendor/bin/coveralls --config .coveralls.yml -v
+  - |
+    if [[ $COVERAGE ]]; then
+      travis_retry php vendor/bin/php-coveralls --config .coveralls.yml -v
+    fi
