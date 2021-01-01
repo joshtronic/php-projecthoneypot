@@ -1,21 +1,22 @@
 <?php
+namespace joshtronic\Tests;
+use joshtronic\ProjectHoneyPot;
+use PHPUnit\Framework\TestCase;
 
-require_once '../src/ProjectHoneyPot.php';
-
-class ProjectHoneyPotTest extends PHPUnit_Framework_TestCase
+class ProjectHoneyPotTest extends TestCase
 {
-    /**
-     * @expectedException        Exception
-     * @expectedExceptionMessage You must specify a valid API key.
-     */
     public function testInvalidKey()
     {
-        new joshtronic\ProjectHoneyPot('foo');
+        try {
+            new ProjectHoneyPot('foo');
+        } catch (\Exception $e) {
+            $this->assertSame('You must specify a valid API key.', $e->getMessage());
+        }
     }
 
     public function testInvalidIP()
     {
-        $object = new joshtronic\ProjectHoneyPot('foobarfoobar');
+        $object = new ProjectHoneyPot('foobarfoobar');
 
         $this->assertEquals(
             array('error' => 'Invalid IP address.'),
@@ -25,11 +26,10 @@ class ProjectHoneyPotTest extends PHPUnit_Framework_TestCase
 
     public function testMissingResults()
     {
-        $mock = $this->getMock(
-            'joshtronic\ProjectHoneyPot',
-            array('dns_get_record'),
-            array('foobarfoobar')
-        );
+        $mock = $this->getMockBuilder('joshtronic\\ProjectHoneyPot')
+            ->setConstructorArgs(array('foobarfoobar'))
+            ->setMethods(array('dns_get_record'))
+            ->getMock();
 
         $mock->expects($this->once())
              ->method('dns_get_record')
@@ -40,11 +40,10 @@ class ProjectHoneyPotTest extends PHPUnit_Framework_TestCase
 
     public function testCategory0()
     {
-        $mock = $this->getMock(
-            'joshtronic\ProjectHoneyPot',
-            array('dns_get_record'),
-            array('foobarfoobar')
-        );
+        $mock = $this->getMockBuilder('joshtronic\\ProjectHoneyPot')
+            ->setConstructorArgs(array('foobarfoobar'))
+            ->setMethods(array('dns_get_record'))
+            ->getMock();
 
         $mock->expects($this->once())
              ->method('dns_get_record')
@@ -57,11 +56,10 @@ class ProjectHoneyPotTest extends PHPUnit_Framework_TestCase
 
     public function testCategory1()
     {
-        $mock = $this->getMock(
-            'joshtronic\ProjectHoneyPot',
-            array('dns_get_record'),
-            array('foobarfoobar')
-        );
+        $mock = $this->getMockBuilder('joshtronic\\ProjectHoneyPot')
+            ->setConstructorArgs(array('foobarfoobar'))
+            ->setMethods(array('dns_get_record'))
+            ->getMock();
 
         $mock->expects($this->once())
              ->method('dns_get_record')
@@ -74,11 +72,10 @@ class ProjectHoneyPotTest extends PHPUnit_Framework_TestCase
 
     public function testCategory2()
     {
-        $mock = $this->getMock(
-            'joshtronic\ProjectHoneyPot',
-            array('dns_get_record'),
-            array('foobarfoobar')
-        );
+        $mock = $this->getMockBuilder('joshtronic\\ProjectHoneyPot')
+            ->setConstructorArgs(array('foobarfoobar'))
+            ->setMethods(array('dns_get_record'))
+            ->getMock();
 
         $mock->expects($this->once())
              ->method('dns_get_record')
@@ -91,11 +88,10 @@ class ProjectHoneyPotTest extends PHPUnit_Framework_TestCase
 
     public function testCategory3()
     {
-        $mock = $this->getMock(
-            'joshtronic\ProjectHoneyPot',
-            array('dns_get_record'),
-            array('foobarfoobar')
-        );
+        $mock = $this->getMockBuilder('joshtronic\\ProjectHoneyPot')
+            ->setConstructorArgs(array('foobarfoobar'))
+            ->setMethods(array('dns_get_record'))
+            ->getMock();
 
         $mock->expects($this->once())
              ->method('dns_get_record')
@@ -111,11 +107,10 @@ class ProjectHoneyPotTest extends PHPUnit_Framework_TestCase
 
     public function testCategory4()
     {
-        $mock = $this->getMock(
-            'joshtronic\ProjectHoneyPot',
-            array('dns_get_record'),
-            array('foobarfoobar')
-        );
+        $mock = $this->getMockBuilder('joshtronic\\ProjectHoneyPot')
+            ->setConstructorArgs(array('foobarfoobar'))
+            ->setMethods(array('dns_get_record'))
+            ->getMock();
 
         $mock->expects($this->once())
              ->method('dns_get_record')
@@ -131,11 +126,10 @@ class ProjectHoneyPotTest extends PHPUnit_Framework_TestCase
 
     public function testCategory5()
     {
-        $mock = $this->getMock(
-            'joshtronic\ProjectHoneyPot',
-            array('dns_get_record'),
-            array('foobarfoobar')
-        );
+        $mock = $this->getMockBuilder('joshtronic\\ProjectHoneyPot')
+            ->setConstructorArgs(array('foobarfoobar'))
+            ->setMethods(array('dns_get_record'))
+            ->getMock();
 
         $mock->expects($this->once())
              ->method('dns_get_record')
@@ -151,11 +145,10 @@ class ProjectHoneyPotTest extends PHPUnit_Framework_TestCase
 
     public function testCategory6()
     {
-        $mock = $this->getMock(
-            'joshtronic\ProjectHoneyPot',
-            array('dns_get_record'),
-            array('foobarfoobar')
-        );
+        $mock = $this->getMockBuilder('joshtronic\\ProjectHoneyPot')
+            ->setConstructorArgs(array('foobarfoobar'))
+            ->setMethods(array('dns_get_record'))
+            ->getMock();
 
         $mock->expects($this->once())
              ->method('dns_get_record')
@@ -171,11 +164,10 @@ class ProjectHoneyPotTest extends PHPUnit_Framework_TestCase
 
     public function testCategory7()
     {
-        $mock = $this->getMock(
-            'joshtronic\ProjectHoneyPot',
-            array('dns_get_record'),
-            array('foobarfoobar')
-        );
+        $mock = $this->getMockBuilder('joshtronic\\ProjectHoneyPot')
+            ->setConstructorArgs(array('foobarfoobar'))
+            ->setMethods(array('dns_get_record'))
+            ->getMock();
 
         $mock->expects($this->once())
              ->method('dns_get_record')
@@ -191,11 +183,10 @@ class ProjectHoneyPotTest extends PHPUnit_Framework_TestCase
 
     public function testCategoryDefault()
     {
-        $mock = $this->getMock(
-            'joshtronic\ProjectHoneyPot',
-            array('dns_get_record'),
-            array('foobarfoobar')
-        );
+        $mock = $this->getMockBuilder('joshtronic\\ProjectHoneyPot')
+            ->setConstructorArgs(array('foobarfoobar'))
+            ->setMethods(array('dns_get_record'))
+            ->getMock();
 
         $mock->expects($this->once())
              ->method('dns_get_record')
@@ -211,11 +202,10 @@ class ProjectHoneyPotTest extends PHPUnit_Framework_TestCase
 
     public function testWithout127()
     {
-        $mock = $this->getMock(
-            'joshtronic\ProjectHoneyPot',
-            array('dns_get_record'),
-            array('foobarfoobar')
-        );
+        $mock = $this->getMockBuilder('joshtronic\\ProjectHoneyPot')
+            ->setConstructorArgs(array('foobarfoobar'))
+            ->setMethods(array('dns_get_record'))
+            ->getMock();
 
         $mock->expects($this->once())
              ->method('dns_get_record')
@@ -227,9 +217,11 @@ class ProjectHoneyPotTest extends PHPUnit_Framework_TestCase
     // Doesn't serve much purpose aside from helping achieve 100% coverage
     public function testDnsGetRecord()
     {
-        $object = new joshtronic\ProjectHoneyPot('foobarfoobar');
+        $object = new ProjectHoneyPot('foobarfoobar');
 
-        $object->dns_get_record('1.2.3.4');
+        $result = $object->dns_get_record('1.2.3.4');
+
+        $this->assertEquals(array(), $result);
     }
 }
 
