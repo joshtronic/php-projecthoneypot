@@ -122,7 +122,7 @@ class ProjectHoneyPot
     /**
      * DNS Get Record
      *
-     * Wrapper method for dns_get_record() to allow fo easy mocking of the
+     * Wrapper method for dns_get_record() to allow for easy mocking of the
      * results in our tests. Takes an already reversed IP address and does a
      * DNS lookup for A records against the http:BL API.
      *
